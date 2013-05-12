@@ -11,7 +11,7 @@ namespace BreakBall
     {
         public int velocityX;
         public int velocityY;
-        public PictureBox pb { get; set; }
+        public PictureBox pb { get; set; }//daweaweaw
 
         public Ball(Size golemina, int x, int y)
         {
