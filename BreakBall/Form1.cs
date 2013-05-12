@@ -123,6 +123,14 @@ namespace BreakBall
                 ball.velocityY = -ball.velocityY;
 
             }
+            // Game over
+            if (ball.pb.Bounds.Y > rectdolu.pb1.Bounds.Y) {
+                MessageBox.Show("igrata zavrshi");
+                ball.velocityX = 0;
+                ball.velocityY = 0;
+                timer.Enabled = false;
+                Close();
+            }
             graphics.DrawImageUnscaled(doubleBuffer, 0, 0);
         }
 
