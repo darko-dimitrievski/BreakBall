@@ -23,11 +23,11 @@ namespace BreakBall
         Bitmap doubleBuffer;
 
         static readonly int FRAMES_PER_SECOND = 30;
-        Size sizeball = new Size(20, 20);
+        Size sizeball = new Size(15, 15);
         Size sizerect = new Size(100, 10);
         Size sizebrick = new Size(50, 10);
         int ballVelocityX = 5;
-        int ballVelocityY = 5;
+        int ballVelocityY = 8;
         public Form1()
         {
             InitializeComponent();
@@ -85,6 +85,9 @@ namespace BreakBall
             g.Clear(Color.White);
             Brush b = new SolidBrush(Color.Gray);
             ball.pb.Location = new Point(ball.pb.Location.X - ball.velocityX, ball.pb.Location.Y - ball.velocityY);
+            
+            g.FillEllipse(new SolidBrush(Color.Red), ball.pb.Location.X-5 , ball.pb.Location.Y-5, 12* 2,12* 2);
+            
             if (ball.pb.Location.X > this.ClientSize.Height - ball.pb.Height || ball.pb.Location.X < 0)
             {
                 ball.velocityX = -ball.velocityX;
@@ -131,7 +134,8 @@ namespace BreakBall
                 timer.Enabled = false;
                 Close();
             }
-            graphics.DrawImageUnscaled(doubleBuffer, 0, 0);
+            else{
+            graphics.DrawImageUnscaled(doubleBuffer, 0, 0);}
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
