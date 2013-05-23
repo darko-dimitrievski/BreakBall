@@ -26,6 +26,7 @@ namespace KoStoSakaTomce
         }
         public void Draw(Graphics g)
         {
+            
             Brush b = new SolidBrush(color);
             g.FillRectangle(b, X - width / 2, Y - height / 2, width, height);
         }
