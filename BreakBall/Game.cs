@@ -59,7 +59,7 @@ namespace KoStoSakaTomce//Brakja Score e napraven samo u labeu da napravite da s
             f.Show();
             palka = new PalkaRect(360, 600, 100, 10);
             brush = new SolidBrush(Color.Blue);
-            pen = new Pen(Color.Red);
+            pen = new Pen(Color.White);
 
             LVL = 0;
             level = new Level(LVL);
