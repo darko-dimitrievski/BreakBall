@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace KoStoSakaTomce
 {
-    public class Brick
+    public class PalkaRect
     {
         public float X { get; set; }
         public float Y { get; set; }
@@ -14,23 +15,30 @@ namespace KoStoSakaTomce
         public int height { get; set; }
         public Color color { get; set; }
         public bool flag { get; set; }
-        public Gift gift { set; get; }
 
-        public Brick(int w, int h, float x, float y,Random R)
+        public PalkaRect(float x , float y,int w, int h)
         {
             X = x;
             Y = y;
             width = w;
             height = h;
-            color = Color.FromArgb(R.Next(50,250), R.Next(70, 255), R.Next(90,190));
+            
+            color = Color.Olive;
+            flag = false;
+
         }
         public void Draw(Graphics g)
         {
             Brush b = new SolidBrush(color);
+            //if(X>0 && X<450)
             g.FillRectangle(b, X - width / 2, Y - height / 2, width, height);
         }
-
-
+        public void ResetPosition()
+        {
+            this.X = 360;
+            this.Y = 600;
+        }
+        
     }
 
 }
