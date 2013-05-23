@@ -68,11 +68,8 @@ namespace KoStoSakaTomce
                     GameOver = true;
                     game.CloseGame();
 
-                    //ff.textBox1.Enabled = true;
-                    //if (ff.textBox1.Text.Trim().Length == 0) {
-                    //    MessageBox.Show("Vneete ime");
-                   // }
-                    if (MessageBox.Show("Вкупно освоени поени " + game.intScore, "Дали сакате да се обидете повторно",
+                   
+                    if (MessageBox.Show("Вкупно освоени поени: " + game.intScore, "Дали сакате да се обидете повторно",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes) {
                         
                         game.NewGame();
@@ -81,7 +78,6 @@ namespace KoStoSakaTomce
                 else if(nextY>palka.Y)
                 {
                     game.START = false;
-                   // game.gamestop = true;
                     game.palka.ResetPosition();
                     game.ball.ResetPosition();
                     game.Lives--;
@@ -98,7 +94,8 @@ namespace KoStoSakaTomce
         return b;
          }
 
-        void WallCollision() {
+         
+         void WallCollision() {
             if (X + Radius <= 35 || (X + Radius >= 650))
             {
                 velocityX = -velocityX;
@@ -114,7 +111,8 @@ namespace KoStoSakaTomce
                 velocityY = -velocityY;
             }
         }
-        void BrickCollision() {
+         
+         void BrickCollision() {
             for (int i = 0; i < b.Count; i++)
             {
                 Brick bb = b[i] as Brick;
@@ -135,12 +133,9 @@ namespace KoStoSakaTomce
                 }
             }
         }
+        
+        
 
-
-        public void ResetPosition() {
-            this.X = 360;
-            this.Y = 564;
-        }
         public void Draw(Graphics g)
         {
             Brush b = new SolidBrush(color);
@@ -159,6 +154,12 @@ namespace KoStoSakaTomce
             return (Math.Abs(b.Y - Y) <= (b.height / 2) + 2 * Radius / 2) && (Math.Abs(b.X - X) <= (b.width / 2) + 2 * Radius / 2);
 
         }
+
+        public void ResetPosition() {
+            this.X = 360;
+            this.Y = 564;
+        }
+        
         
        
     }
