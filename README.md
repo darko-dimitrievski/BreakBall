@@ -1,6 +1,3 @@
-https://github.com/darko-dimitrievski/BreakBall/wiki/BreakBall
-
-
 # Проектна задача по предметот Визуелно Програмирање
 
 **# Break Ball**
