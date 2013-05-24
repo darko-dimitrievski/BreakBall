@@ -76,8 +76,12 @@ namespace KoStoSakaTomce
         {
             if (!game.START)
             {
-                game.palka.X = e.X;
-                game.ball.X = e.X;
+                
+            if ((e.X>= 50) && (e.X <=635))
+                 {
+                    game.palka.X = e.X;
+                    game.ball.X = e.X;
+                }
             }
         }
 
