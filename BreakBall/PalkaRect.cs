@@ -29,9 +29,8 @@ namespace KoStoSakaTomce
         }
         public void Draw(Graphics g)
         {
-            Brush b = new SolidBrush(color);
-            //if(X>0 && X<450)
-            g.FillRectangle(b, X - width / 2, Y - height / 2, width, height);
+            Brush brush = new SolidBrush(color);
+            g.FillRectangle(brush, X - width / 2, Y - height / 2, width, height);
         }
         public void ResetPosition()
         {
