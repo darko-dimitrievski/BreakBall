@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace KoStoSakaTomce//Brakja Score e napraven samo u labeu da napravite da se prikazue i jos ednu labelu za lives :)
+namespace KoStoSakaTomce
 {
     public class Game
     {
@@ -29,7 +29,7 @@ namespace KoStoSakaTomce//Brakja Score e napraven samo u labeu da napravite da s
         public int  brojacMala;
         public int  brojacGolema;
         public Form1 ff;
-        public bool gamestop { set; get; }
+        public bool gameover { set; get; }
 
         public  bool START = false;
 
@@ -43,14 +43,12 @@ namespace KoStoSakaTomce//Brakja Score e napraven samo u labeu da napravite da s
         }
         public void CloseGame(){
             graphics.Dispose();
-            //graphics = f.CreateGraphics();
             timer.Dispose();
         }
 
         public void NewGame() {
-            //bricks = new List<Brick>();
-            //DoubleBuffered = true;
-            //gamestop = true;
+
+            gameover = false;
 
             bounds = new Rectangle(0, 25, f.Bounds.Width - 18, f.Bounds.Height - 40);
             doubleBuffer = new Bitmap(f.Width, f.Height);
@@ -103,7 +101,7 @@ namespace KoStoSakaTomce//Brakja Score e napraven samo u labeu da napravite da s
             g.DrawRectangle(pen, bounds);
             ball.Draw(g);
             palka.Draw(g);
-            //Score();
+
             ff.lbLives.Text = "Lives : " + Lives.ToString();
             ff.lbScore.Text = "Score : " + intScore.ToString();
             
@@ -146,15 +144,11 @@ namespace KoStoSakaTomce//Brakja Score e napraven samo u labeu da napravite da s
                         }
                         else MessageBox.Show("Играта заврши");
                     }
+                    else { CloseGame(); f.Close(); gameover = true; }
 
                 }
-            }
-
-            
-            ///150 denara 5 minuta 
-            
-            
-            graphics.DrawImageUnscaled(doubleBuffer, 0, 0);
+            }            
+           if(!gameover) graphics.DrawImageUnscaled(doubleBuffer, 0, 0);
 
         }
     }
