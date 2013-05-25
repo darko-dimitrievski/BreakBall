@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -74,6 +74,7 @@ namespace KoStoSakaTomce
                         
                         game.NewGame();
                     }
+                    else { game.CloseGame(); f.Close(); game.gameover = true; }
                 }
                 else if(nextY>palka.Y)
                 {
